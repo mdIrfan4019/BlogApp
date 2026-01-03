@@ -3,8 +3,17 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors());
+
 app.use(express.json());
+app.use(express.json());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app"
+  ],
+  credentials: true
+}));
+
 
 import authRoutes from "./routes/authRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
